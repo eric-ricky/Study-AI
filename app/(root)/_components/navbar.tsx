@@ -1,4 +1,12 @@
 import Logo from "@/components/brand/logo";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+const navLinks = [
+  { name: "Features", href: "#features" },
+  { name: "Benefits", href: "#benefits" },
+  { name: "Pricing", href: "#pricing" },
+];
 
 export const Navbar = () => {
   return (
@@ -6,28 +14,22 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Logo />
         <div className="hidden md:flex items-center gap-8">
-          <a
-            href="#features"
-            className="text-gray-600 hover:text-indigo-600 transition-colors"
-          >
-            Features
-          </a>
-          <a
-            href="#benefits"
-            className="text-gray-600 hover:text-indigo-600 transition-colors"
-          >
-            Benefits
-          </a>
-          <a
-            href="#pricing"
-            className="text-gray-600 hover:text-indigo-600 transition-colors"
-          >
-            Pricing
-          </a>
+          {navLinks.map((l) => (
+            <Link
+              key={l.name}
+              href={l.href}
+              className="text-gray-600 hover:text-indigo-600 transition-colors"
+            >
+              {l.name}
+            </Link>
+          ))}
         </div>
-        <button className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition-colors">
-          Try Free
-        </button>
+        <Button
+          className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition-colors"
+          asChild
+        >
+          <Link href="/dashboard">Try Free</Link>
+        </Button>
       </div>
     </nav>
   );
