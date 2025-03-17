@@ -122,7 +122,7 @@ const SignInCard = () => {
                     <Label htmlFor="password">Password</Label>
                     <FormControl>
                       <PasswordInput
-                        placeholder="Password"
+                        placeholder="Enter Password"
                         autoComplete="new-password"
                         {...field}
                       />
